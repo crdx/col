@@ -1,6 +1,6 @@
 # col
 
-A terminal colours library for Go.
+**col** is a terminal colours library for Go.
 
 ## Usage
 
