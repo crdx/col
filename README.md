@@ -84,3 +84,11 @@ func Underline(str string)
 func Bold(str string)
 func Italic(str string)
 ```
+
+## Contributions
+
+Open an [issue](https://github.com/crdx/col/issues) or send a [pull request](https://github.com/crdx/col/pulls).
+
+## Licence
+
+[MIT](LICENCE.md).
