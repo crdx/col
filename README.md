@@ -53,36 +53,36 @@ col.InitUnless(opts.NoColor)
 
 ### Foreground
 
-```
-func Green(str string)
-func Blue(str string)
-func Red(str string)
-func Yellow(str string)
-func Magenta(str string)
-func White(str string)
-func Black(str string)
-func Cyan(str string)
+```go
+func Green(str string) string
+func Blue(str string) string
+func Red(str string) string
+func Yellow(str string) string
+func Magenta(str string) string
+func White(str string) string
+func Black(str string) string
+func Cyan(str string) string
 ```
 
 ### Background
 
-```
-func BgGreen(str string)
-func BgBlue(str string)
-func BgRed(str string)
-func BgYellow(str string)
-func BgMagenta(str string)
-func BgWhite(str string)
-func BgBlack(str string)
-func BgCyan(str string)
+```go
+func BgGreen(str string) string
+func BgBlue(str string) string
+func BgRed(str string) string
+func BgYellow(str string) string
+func BgMagenta(str string) string
+func BgWhite(str string) string
+func BgBlack(str string) string
+func BgCyan(str string) string
 ```
 
 ### Styling
 
-```
-func Underline(str string)
-func Bold(str string)
-func Italic(str string)
+```go
+func Underline(str string) string
+func Bold(str string) string
+func Italic(str string) string
 ```
 
 ## Contributions
