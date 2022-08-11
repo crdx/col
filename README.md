@@ -91,4 +91,4 @@ Open an [issue](https://github.com/crdx/col/issues) or send a [pull request](htt
 
 ## Licence
 
-[MIT](LICENCE.md).
+[GPLv3](LICENCE).
