@@ -2,6 +2,12 @@
 
 **col** is a terminal colours library for Go.
 
+## Installation
+
+```sh
+go get github.com/crdx/col
+```
+
 ## Usage
 
 ```go
