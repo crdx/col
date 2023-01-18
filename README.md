@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-go get github.com/crdx/col
+go get crdx.org/col
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ go get github.com/crdx/col
 ```go
 import (
     "fmt"
-    "github.com/crdx/col"
+    "crdx.org/col"
 )
 
 func main() {

@@ -1,3 +1,3 @@
-module github.com/crdx/col
+module crdx.org/col
 
 go 1.16
