@@ -4,16 +4,16 @@ import (
 	"os"
 )
 
-var enable = true
+var enabled = true
 
 // Enable enables colours.
 func Enable() {
-	enable = true
+	enabled = true
 }
 
 // Disable disables colours.
 func Disable() {
-	enable = false
+	enabled = false
 }
 
 // Init initialises colours based on heuristics.
@@ -139,7 +139,7 @@ const (
 )
 
 func render(str string, code string, bg bool) string {
-	if !enable {
+	if !enabled {
 		return str
 	}
 
