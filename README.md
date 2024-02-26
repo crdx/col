@@ -60,35 +60,35 @@ col.InitUnless(opts.NoColor)
 ### Foreground
 
 ```go
-func Green(str string) string
-func Blue(str string) string
-func Red(str string) string
-func Yellow(str string) string
-func Magenta(str string) string
-func White(str string) string
-func Black(str string) string
-func Cyan(str string) string
+func Green(fmt any, args ...any) string
+func Blue(fmt any, args ...any) string
+func Red(fmt any, args ...any) string
+func Yellow(fmt any, args ...any) string
+func Magenta(fmt any, args ...any) string
+func White(fmt any, args ...any) string
+func Black(fmt any, args ...any) string
+func Cyan(fmt any, args ...any) string
 ```
 
 ### Background
 
 ```go
-func BgGreen(str string) string
-func BgBlue(str string) string
-func BgRed(str string) string
-func BgYellow(str string) string
-func BgMagenta(str string) string
-func BgWhite(str string) string
-func BgBlack(str string) string
-func BgCyan(str string) string
+func BgGreen(fmt any, args ...any) string
+func BgBlue(fmt any, args ...any) string
+func BgRed(fmt any, args ...any) string
+func BgYellow(fmt any, args ...any) string
+func BgMagenta(fmt any, args ...any) string
+func BgWhite(fmt any, args ...any) string
+func BgBlack(fmt any, args ...any) string
+func BgCyan(fmt any, args ...any) string
 ```
 
 ### Styling
 
 ```go
-func Underline(str string) string
-func Bold(str string) string
-func Italic(str string) string
+func Underline(fmt any, args ...any) string
+func Bold(fmt any, args ...any) string
+func Italic(fmt any, args ...any) string
 ```
 
 ## Contributions
