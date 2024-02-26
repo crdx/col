@@ -1,6 +1,7 @@
 package col
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -48,61 +49,61 @@ func InitUnless(disable bool) {
 }
 
 // Green sets the foreground colour to green.
-func Green(str string) string { return render(str, fgGreen, false) }
+func Green(fmt any, args ...any) string { return render(fmt, fgGreen, false, args...) }
 
 // Blue sets the foreground colour to blue.
-func Blue(str string) string { return render(str, fgBlue, false) }
+func Blue(fmt any, args ...any) string { return render(fmt, fgBlue, false, args...) }
 
 // Red sets the foreground colour to red.
-func Red(str string) string { return render(str, fgRed, false) }
+func Red(fmt any, args ...any) string { return render(fmt, fgRed, false, args...) }
 
 // Yellow sets the foreground colour to yellow.
-func Yellow(str string) string { return render(str, fgYellow, false) }
+func Yellow(fmt any, args ...any) string { return render(fmt, fgYellow, false, args...) }
 
 // Magenta sets the foreground colour to magenta.
-func Magenta(str string) string { return render(str, fgMagenta, false) }
+func Magenta(fmt any, args ...any) string { return render(fmt, fgMagenta, false, args...) }
 
 // White sets the foreground colour to white.
-func White(str string) string { return render(str, fgWhite, false) }
+func White(fmt any, args ...any) string { return render(fmt, fgWhite, false, args...) }
 
 // Black sets the foreground colour to black.
-func Black(str string) string { return render(str, fgBlack, false) }
+func Black(fmt any, args ...any) string { return render(fmt, fgBlack, false, args...) }
 
 // Cyan sets the foreground colour to cyan.
-func Cyan(str string) string { return render(str, fgCyan, false) }
+func Cyan(fmt any, args ...any) string { return render(fmt, fgCyan, false, args...) }
 
 // BgGreen sets the background colour to green.
-func BgGreen(str string) string { return render(str, bgGreen, true) }
+func BgGreen(fmt any, args ...any) string { return render(fmt, bgGreen, true, args...) }
 
 // BgBlue sets the background colour to blue.
-func BgBlue(str string) string { return render(str, bgBlue, true) }
+func BgBlue(fmt any, args ...any) string { return render(fmt, bgBlue, true, args...) }
 
 // BgRed sets the background colour to red.
-func BgRed(str string) string { return render(str, bgRed, true) }
+func BgRed(fmt any, args ...any) string { return render(fmt, bgRed, true, args...) }
 
 // BgYellow sets the background colour to yellow.
-func BgYellow(str string) string { return render(str, bgYellow, true) }
+func BgYellow(fmt any, args ...any) string { return render(fmt, bgYellow, true, args...) }
 
 // BgMagenta sets the background colour to magenta.
-func BgMagenta(str string) string { return render(str, bgMagenta, true) }
+func BgMagenta(fmt any, args ...any) string { return render(fmt, bgMagenta, true, args...) }
 
 // BgWhite sets the background colour to white.
-func BgWhite(str string) string { return render(str, bgWhite, true) }
+func BgWhite(fmt any, args ...any) string { return render(fmt, bgWhite, true, args...) }
 
 // BgBlack sets the background colour to black.
-func BgBlack(str string) string { return render(str, bgBlack, true) }
+func BgBlack(fmt any, args ...any) string { return render(fmt, bgBlack, true, args...) }
 
 // BgCyan sets the background colour to cyan.
-func BgCyan(str string) string { return render(str, bgCyan, true) }
+func BgCyan(fmt any, args ...any) string { return render(fmt, bgCyan, true, args...) }
 
 // Underline sets the styling to underlined.
-func Underline(str string) string { return render(str, underline, false) }
+func Underline(fmt any, args ...any) string { return render(fmt, underline, false, args...) }
 
 // Bold sets the styling to bold.
-func Bold(str string) string { return render(str, bold, false) }
+func Bold(fmt any, args ...any) string { return render(fmt, bold, false, args...) }
 
 // Italic sets the styling to italic.
-func Italic(str string) string { return render(str, italic, false) }
+func Italic(fmt any, args ...any) string { return render(fmt, italic, false, args...) }
 
 // —————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -138,14 +139,20 @@ const (
 	reset     = "0"
 )
 
-func render(str string, code string, bg bool) string {
+func render(v any, code string, bg bool, args ...any) string {
+	s := fmt.Sprint(v)
+
+	if len(args) > 0 {
+		s = fmt.Sprintf(s, args...)
+	}
+
 	if !enabled {
-		return str
+		return s
 	}
 
 	if bg {
 		code = ";" + code
 	}
 
-	return escape + code + "m" + str + escape + reset + "m"
+	return escape + code + "m" + s + escape + reset + "m"
 }
