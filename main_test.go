@@ -1,7 +1,6 @@
 package col
 
 import (
-	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -24,20 +23,16 @@ func TestInitUnless(t *testing.T) {
 	assert.False(t, enabled)
 	Enable()
 
-	os.Setenv("NO_COLOR", "1")
+	t.Setenv("NO_COLOR", "1")
 	InitUnless(false)
 	assert.False(t, enabled)
-	os.Unsetenv("NO_COLOR")
-	Enable()
 }
 
 func TestInit(t *testing.T) {
 	Enable()
-	os.Setenv("NO_COLOR", "1")
+	t.Setenv("NO_COLOR", "1")
 	Init()
 	assert.False(t, enabled)
-	os.Unsetenv("NO_COLOR")
-	Enable()
 }
 
 func TestColoursEnabled(t *testing.T) {
@@ -119,6 +114,6 @@ func TestEmptyString(t *testing.T) {
 	assert.Equal(t, "\033[32m\033[0m", Green(""))
 
 	Disable()
-	assert.Equal(t, "", Green(""))
+	assert.Empty(t, Green(""))
 	Enable()
 }
