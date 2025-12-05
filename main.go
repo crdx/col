@@ -102,6 +102,9 @@ func Underline(fmt any, args ...any) string { return render(fmt, underline, fals
 // Bold sets the styling to bold.
 func Bold(fmt any, args ...any) string { return render(fmt, bold, false, args...) }
 
+// Dim sets the styling to dim.
+func Dim(fmt any, args ...any) string { return render(fmt, dim, false, args...) }
+
 // Italic sets the styling to italic.
 func Italic(fmt any, args ...any) string { return render(fmt, italic, false, args...) }
 
@@ -135,6 +138,7 @@ const (
 
 	underline = "4"
 	italic    = "3"
+	dim       = "2"
 	bold      = "1"
 	reset     = "0"
 )
