@@ -108,6 +108,12 @@ func Italic(fmt any, args ...any) string { return render(fmt, italic, false, arg
 // Underline sets the styling to underlined.
 func Underline(fmt any, args ...any) string { return render(fmt, underline, false, args...) }
 
+// Strikethrough sets the styling to strikethrough.
+func Strikethrough(fmt any, args ...any) string { return render(fmt, strikethrough, false, args...) }
+
+// Reverse sets the styling to reverse (swaps foreground and background).
+func Reverse(fmt any, args ...any) string { return render(fmt, reverse, false, args...) }
+
 // —————————————————————————————————————————————————————————————————————————————————————————————————
 
 func isInteractive() bool {
@@ -136,11 +142,13 @@ const (
 	bgCyan    = "46"
 	bgWhite   = "47"
 
-	underline = "4"
-	italic    = "3"
-	dim       = "2"
-	bold      = "1"
-	reset     = "0"
+	underline     = "4"
+	italic        = "3"
+	dim           = "2"
+	bold          = "1"
+	strikethrough = "9"
+	reverse       = "7"
+	reset         = "0"
 )
 
 func render(v any, code string, bg bool, args ...any) string {
