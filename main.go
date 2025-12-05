@@ -96,9 +96,6 @@ func BgBlack(fmt any, args ...any) string { return render(fmt, bgBlack, true, ar
 // BgCyan sets the background colour to cyan.
 func BgCyan(fmt any, args ...any) string { return render(fmt, bgCyan, true, args...) }
 
-// Underline sets the styling to underlined.
-func Underline(fmt any, args ...any) string { return render(fmt, underline, false, args...) }
-
 // Bold sets the styling to bold.
 func Bold(fmt any, args ...any) string { return render(fmt, bold, false, args...) }
 
@@ -107,6 +104,9 @@ func Dim(fmt any, args ...any) string { return render(fmt, dim, false, args...) 
 
 // Italic sets the styling to italic.
 func Italic(fmt any, args ...any) string { return render(fmt, italic, false, args...) }
+
+// Underline sets the styling to underlined.
+func Underline(fmt any, args ...any) string { return render(fmt, underline, false, args...) }
 
 // —————————————————————————————————————————————————————————————————————————————————————————————————
 
