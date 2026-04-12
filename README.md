@@ -27,7 +27,7 @@ func main() {
 If `Init` or `InitUnless` is called, the following heuristics are used to figure out whether colour support should be disabled.
 
 - The `NO_COLOR` environment variable is set.
-- The terminal is not interactive.
+- The terminal is not interactive (stdout or stderr is not a terminal).
 
 To disable use of these heuristics, simply don't call `Init` or `InitUnless`.
 

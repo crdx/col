@@ -17,14 +17,14 @@ func Disable() {
 	enabled = false
 }
 
-// Init initialises colours based on heuristics, checking if stdout is a terminal.
+// Init initialises colours based on heuristics, checking if stdout and stderr are terminals.
 //
 // The following heuristics are used to figure out whether colour support should be disabled.
 //
 //   - The NO_COLOR environment variable is set.
-//   - The terminal is not interactive.
+//   - The terminal is not interactive (stdout or stderr is not a terminal).
 func Init() {
-	initWith(os.Stdout)
+	initWith(os.Stdout, os.Stderr)
 }
 
 // InitStderr initialises colours based on heuristics, checking if stderr is a terminal.
@@ -45,7 +45,7 @@ func InitUnless(disable bool) {
 		return
 	}
 
-	initWith(os.Stdout)
+	initWith(os.Stdout, os.Stderr)
 }
 
 // Green sets the foreground colour to green.
@@ -124,15 +124,17 @@ func isCharDevice(file *os.File) bool {
 	return (fileInfo.Mode() & os.ModeCharDevice) != 0
 }
 
-func initWith(file *os.File) {
+func initWith(files ...*os.File) {
 	if os.Getenv("NO_COLOR") != "" {
 		Disable()
 		return
 	}
 
-	if !isCharDevice(file) {
-		Disable()
-		return
+	for _, file := range files {
+		if !isCharDevice(file) {
+			Disable()
+			return
+		}
 	}
 }
 
